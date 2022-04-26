@@ -33,7 +33,7 @@ Route::group(['middleware' => ['auth']], function () {
     
     Route::group(['prefix' => 'microposts/{id}'], function () {
         Route::post('favorite', 'FavoritesController@store')->name('favorites.favorite');
-        Route::post('unfavorite', 'FavoritesController@destroy')->name('favorites.unfavorite');
+        Route::delete('unfavorite', 'FavoritesController@destroy')->name('favorites.unfavorite');
     });
     
     Route::resource('microposts', 'MicropostsController', ['only' => ['store', 'destroy']]);
